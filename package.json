@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "zod": "^4.1.12",
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/glob": "^8.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "smoke": "ts-node tests/tools-smoke.ts"
+  }
+}

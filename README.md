@@ -18,12 +18,12 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 ## 🗂️ Repository Structure
 
 ### Company Level Context (`company-level-context/`)
-- **Product Vision & Strategy** (`product-vision-and-strateggy/`): 
+- **Product Vision & Strategy** (`product-vision-and-strateggy/`):
   - `product-strategy-review.mdc`: PRISM-aligned strategy review framework with auto-gate evidence readiness
   - `product-vision-review.mdc`: Vision evaluation framework with 4-criteria scoring system
-- **OKRs** (`okrs/`): 
+- **OKRs** (`okrs/`):
   - `okr-sparring-partner.mdc`: Context-aware OKR coaching and sparring partner
-- **Team Structure** (`team-structure/`): 
+- **Team Structure** (`team-structure/`):
   - `readme.md`: Team organization models, design principles, and re-org considerations
 
 ### Copilots (`copilots/`)
@@ -44,13 +44,16 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 
 ### Guides (`guides/`)
 - **Meetings** (`meetings/`): `1-1s.mdc`
-- **Product** (`product/`): 
+- **Product** (`product/`):
   - `create-1-pager.mdc`: One-pager creation framework
   - `create-design-brief.mdc`: Design brief generation guide
   - `create-prd.mdc`: Product Requirements Document creation
   - `generate-figma-make-prompt.mdc`: Figma design prompt generation
   - `generate-tasks.mdc`: Task breakdown and generation
   - `process-task-list.mdc`: Task list processing and management
+- **Integrations** (`integrations/`):
+  - `integrations-overview.md`: Overview of all tool integrations
+  - Individual guides for Langfuse, Statsig, Mixpanel, Honeycomb, Figma, GitHub, Databricks, Notion, Google Docs, Slack
 - **Writing** (`writing/`): `writing.mdc`
 
 ### Initiatives (`initiatives/`)
@@ -73,17 +76,53 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 - `product-trio/`: Product trio (PM, Design, Engineering) collaboration notes
 - `board-n-investor/`: Board and investor meeting documentation
 
+### Workspace (`workspace/`)
+- **Docs** (`docs/`): Your personal workspace for project notes, central registers (stakeholders, decisions, risks, metrics, glossary), and current projects
+- **Templates** (`templates/`): Comprehensive template library including:
+  - Product planning (PRDs, TRDs, feature specs)
+  - Roadmaps & planning (quarterly, feature, release, sprint)
+  - User stories & requirements (stories, epics, acceptance criteria)
+  - Communication (status updates, stakeholder updates, stakeholder maps)
+  - Decision making & risk (decision logs, risk registers, change requests)
+  - Retrospectives & analysis (retros, post-mortems, competitive analysis)
+  - Go-to-market & launch (GTM plans)
+  - Metrics & analytics (dashboards, experiment logs, A/B tests, cohort analysis)
+  - Meeting notes (sprint planning, product trio, leadership, board - all with PM, Program Manager, and Engineering perspectives)
+
+### Custom Tools (`.cursor/tools/`)
+- **Integration Tools**: TypeScript tools for direct API access to:
+  - `figma-frames.ts`: Get Figma file frames
+  - `local-notes.ts`: Read local notes from workspace/docs/
+  - `langfuse.ts`: Query Langfuse for traces, evaluations, metrics
+  - `statsig.ts`: Query Statsig for experiments and feature flags
+  - `mixpanel.ts`: Query Mixpanel for events, funnels, cohorts
+  - `honeycomb.ts`: Query Honeycomb for observability data
+  - `linear.ts`: Query Linear for issues, projects, teams
+  - `google-drive.ts`: Query Google Drive for documents, sheets, slides
+- **Analysis Tools**: Tools for document analysis and reporting:
+  - `document-synthesis.ts`: Synthesize multiple documents and answer questions
+  - `cross-project-report.ts`: Generate reports across multiple projects
+  - `template-validator.ts`: Validate documents against templates
+  - `related-docs.ts`: Find related documents by similarity
+  - `action-item-tracker.ts`: Extract and track action items across documents
+
 > Tip: When referencing files in Cursor, use the exact path names above.
 
 ## 🧭 Quick Start
 
-1. Clone this repository to your local workspace
-2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
-3. Start with strategic review frameworks:
-   - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
+1. **Clone this repository** to your local workspace
+2. **Set up environment variables** (optional, for integrations):
+   - Copy `.env.example` to `.env` (if it exists) or create `.env`
+   - Add API keys for tools you want to use (Figma, Langfuse, Statsig, Mixpanel, Honeycomb)
+   - See `guides/integrations/integrations-overview.md` for details
+3. **In Cursor, use `@` to mention files** (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
+4. **Start with one of these workflows**:
+   - **Strategic Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
    - **Vision Evaluation**: `@company-level-context/product-vision-and-strateggy/product-vision-review.mdc`
    - **OKR Coaching**: `@company-level-context/okrs/okr-sparring-partner.mdc`
-4. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
+   - **Create a PRD**: `@guides/product/create-prd.mdc`
+   - **Start a New Initiative**: `@initiatives/_templates/setup-new-initiative.mdc`
+   - **Use a Template**: `@workspace/templates/prd-simple.md`
 
 ## 🚀 How to Use
 
@@ -114,17 +153,58 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 
 ## 🔄 Common Workflows
 
-- **Create a PRD**: Start with `guides/product/create-prd.mdc`
+### Product Development
+- **Create a PRD**: Start with `guides/product/create-prd.mdc` or use `workspace/templates/prd-simple.md`
+- **Create AI/Clinical PRD**: Use `workspace/templates/prd-function-ai.md` for AI/ML features
+- **Create TRD**: Use `workspace/templates/trd-function-ai.md` for technical requirements
 - **Create One-Pager**: Use `guides/product/create-1-pager.mdc` for concise product summaries
 - **Generate Design Brief**: Use `guides/product/create-design-brief.mdc` for design specifications
-- **Create Figma Prompts**: Use `guides/product/generate-figma-make-prompt.mdc` for design tool integration
+- **Create Feature Spec**: Use `workspace/templates/feature-spec.md` for lighter-weight specs
 - **Generate and Process Tasks**: Use `guides/product/generate-tasks.mdc` and `guides/product/process-task-list.mdc`
+
+### Planning & Roadmaps
+- **Create Quarterly Roadmap**: Use `workspace/templates/roadmap-quarterly.md`
+- **Create Feature Roadmap**: Use `workspace/templates/roadmap-feature.md`
+- **Plan a Release**: Use `workspace/templates/release-plan.md`
+- **Plan a Sprint**: Use `workspace/templates/sprint-plan.md`
+
+### Discovery & Research
 - **Run Continuous Discovery**: Follow `frameworks/continuous-discovery-habits/*`
+- **Create Interview Snapshots**: Use `frameworks/continuous-discovery-habits/create-interview-snapshots.mdc`
+- **Synthesize Research**: Use `frameworks/continuous-discovery-habits/synthesize-interview-snapshots.mdc`
 - **Score Ideas (ICE)**: Use `frameworks/evidence-guided/calculate-ice-score.mdc`
+
+### Strategy & OKRs
 - **Review Product Strategy**: Use `company-level-context/product-vision-and-strateggy/product-strategy-review.mdc` with PRISM framework
 - **Evaluate Product Vision**: Use `company-level-context/product-vision-and-strateggy/product-vision-review.mdc` with 4-criteria scoring
 - **Coach OKRs**: Use `company-level-context/okrs/okr-sparring-partner.mdc` for context-aware OKR development
 - **Design Team Structure**: Reference `company-level-context/team-structure/readme.md` for organizational models
+
+### Analytics & Experiments
+- **Plan A/B Test**: Use `workspace/templates/ab-test-plan.md`
+- **Design Experiment**: Use `workspace/templates/experiment-design.md`
+- **Analyze Cohorts**: Use `workspace/templates/cohort-analysis.md`
+- **Track Experiments**: Use `workspace/templates/experiment-log.md`
+
+### Meetings & Communication
+- **Sprint Planning Notes**: Use `workspace/templates/meeting-notes-sprint-planning.md` (PM, Program Manager, Engineering perspectives)
+- **Product Trio Notes**: Use `workspace/templates/meeting-notes-product-trio.md` (PM, Design, Engineering perspectives)
+- **Leadership Notes**: Use `workspace/templates/meeting-notes-leadership.md` (PM, Program Manager, Engineering perspectives)
+- **Board Notes**: Use `workspace/templates/meeting-notes-board.md` (PM, Program Manager, Engineering perspectives)
+- **Weekly Status**: Use `workspace/templates/status-weekly.md`
+- **Stakeholder Update**: Use `workspace/templates/stakeholder-update.md`
+
+### Decision Making & Risk
+- **Log Decisions**: Use `workspace/templates/decision-log.md`
+- **Track Risks**: Use `workspace/templates/risk-register.md`
+- **Request Changes**: Use `workspace/templates/change-request.md`
+
+### Retrospectives & Analysis
+- **Run Retrospective**: Use `workspace/templates/retrospective.md`
+- **Post-Mortem**: Use `workspace/templates/post-mortem.md`
+- **Competitive Analysis**: Use `workspace/templates/competitive-analysis.md`
+
+### Initiatives
 - **Start a New Initiative**: Use `initiatives/_templates/setup-new-initiative.mdc` and the `initiative-template/` structure
 
 ## 🌟 Key Benefits
@@ -168,7 +248,79 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **Selective Context**: Choose what information to share with AI for focused assistance
 - **Visual Diffs**: Clearly see AI-generated changes and modifications
 - **From Instructions to Initiatives**: Build complete product initiatives step by step
+- **Custom Tools**: Direct API integration with Langfuse, Statsig, Mixpanel, Honeycomb, and Figma
+- **Local Notes Tool**: Read and summarize notes from `workspace/docs/` using `@readLocalNote`
 
+## 🔌 Tool Integrations
+
+This repository includes custom tools and guides for integrating with your existing toolchain:
+
+### Analytics & Experimentation
+- **Statsig**: Query experiments and feature flags (`@statsig`)
+- **Mixpanel**: Query events, funnels, and cohorts (`@mixpanel`)
+
+### AI/ML Observability
+- **Langfuse**: Query traces, evaluations, and metrics (`@langfuse`)
+
+### Observability
+- **Honeycomb**: Query observability data and traces (`@honeycomb`)
+
+### Design & Collaboration
+- **Figma**: Get frames from Figma files (`@getFigmaFrames`)
+- **GitHub**: Link to issues, PRs, and code
+- **Notion**: Reference and link to Notion pages
+- **Google Docs**: Reference and link to Google Docs
+- **Slack**: Link to Slack threads and channels
+
+### Data & Analytics
+- **Databricks**: Reference tables, notebooks, and jobs
+
+### Project Management
+- **Linear**: Query issues, projects, and teams
+
+See `guides/integrations/integrations-overview.md` for setup and usage details.
+
+## 🎯 High-Priority Tools
+
+### Document Synthesis
+Analyze multiple documents (PRDs, TRDs, Linear tickets) and ask questions:
+```
+@synthesizeDocuments files=["prd-notifications-v2.md", "trd-notifications.md"]
+question="What needs to be done and what are the missing issues?"
+```
+
+### Cross-Project Reports
+Generate comprehensive reports across projects:
+```
+@generateCrossProjectReport reportType=weekly include=["projects", "metrics", "risks"]
+```
+
+### Template Validator
+Validate documents against templates:
+```
+@validateTemplate file=prd-notifications-v2.md template=prd-simple.md
+```
+
+### Related Documents Finder
+Find related documents by similarity:
+```
+@findRelatedDocuments file=prd-notifications-v2.md similarity=0.5
+```
+
+### Action Item Tracker
+Extract and track action items:
+```
+@trackActionItems scope=workspace/docs/ status=open owner="John Doe"
+```
+
+See `guides/tools/high-priority-tools-guide.md` for detailed usage.
+
+## 📚 Documentation
+
+- **README.md** (this file): Overview and quick start
+- **USAGE_GUIDE.md**: Comprehensive usage guide with detailed workflows, best practices, and troubleshooting
+- **ADDITIONAL_FUNCTIONALITY.md**: Ideas for additional features and functionality
+- **workspace/docs/index.md**: Complete index of all templates and docs
 
 ## 🙏 Acknowledgments
 

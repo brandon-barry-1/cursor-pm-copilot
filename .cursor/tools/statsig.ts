@@ -39,7 +39,7 @@ export default defineTool({
                 }
 
                 const experiment = await res.json();
-                return JSON.stringify(experiment, null, 2);
+                return JSON.stringify({ summary: `Fetched experiment ${experimentId}`, raw: experiment }, null, 2);
             }
 
             if (query === "experiments") {
@@ -54,7 +54,7 @@ export default defineTool({
                 }
 
                 const data = await res.json();
-                return JSON.stringify(data, null, 2);
+                return JSON.stringify({ summary: `Fetched ${data?.length ?? 0} experiments`, raw: data }, null, 2);
             }
 
             if (query === "feature-flags") {

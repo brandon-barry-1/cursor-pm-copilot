@@ -13,6 +13,7 @@ This document outlines potential additional functionality that could enhance the
 @summarizeDocs files=["prd-notifications-v2.md", "ai-chat-clinician-notes-project.md"]
 output=executive-summary.md
 ```
+Status: Implemented as `summarizeDocuments` (see README).
 
 ### 2. Cross-Project Report Generator
 **What**: Generate reports that pull data from multiple sources (PRDs, status docs, metrics)
@@ -153,4 +154,3 @@ output=executive-summary.md
    - Communication tools?
 
 Let me know which functionality you'd like to prioritize, and I'll build it!
-

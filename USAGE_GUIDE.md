@@ -71,6 +71,7 @@ This comprehensive guide covers everything you need to know to effectively use t
 - **Mixpanel**: Set `MIXPANEL_API_SECRET`; for JQL, pass `query="jql"` and `jql="function main() { ... }"`.
 - **Statsig**: Set `STATSIG_API_KEY`; use `query="experiments" | "feature-flags" | "metrics"` (metrics requires `metricName`).
 - **Honeycomb**: Set `HONEYCOMB_API_KEY`; use `queryHoneycomb` with a query expression and `timeRange` (1h/24h/7d).
+- **Drive summarization**: Use `summarizeDocuments` to build a summary prompt from multiple docs (auto-truncates to keep context small).
 
 ### Your First Task
 

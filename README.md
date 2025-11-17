@@ -313,6 +313,12 @@ Extract and track action items:
 @trackActionItems scope=workspace/docs/ status=open owner="John Doe"
 ```
 
+### Document Summarizer
+Build a concise summary prompt from multiple docs (auto-truncates):
+```
+@summarizeDocuments files=["workspace/docs/prd-notifications-v2.md","workspace/docs/status-2024-01-01.md"] perFileCharLimit=3000
+```
+
 See `guides/tools/high-priority-tools-guide.md` for detailed usage.
 
 ## 📚 Documentation

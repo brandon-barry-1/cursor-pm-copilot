@@ -7,6 +7,7 @@ import mixpanel from "../.cursor/tools/mixpanel";
 import statsig from "../.cursor/tools/statsig";
 import honeycomb from "../.cursor/tools/honeycomb";
 import drive from "../.cursor/tools/google-drive";
+import summarize from "../.cursor/tools/document-summary";
 
 type SmokeCase = { name: string; run: () => Promise<boolean> };
 
@@ -37,6 +38,13 @@ const cases: SmokeCase[] = [
         run: async () => {
             const res = await drive.execute({ query: "list", limit: 1, fileType: "all" });
             return typeof res === "string" && res.toLowerCase().includes("google");
+        },
+    },
+    {
+        name: "document summary prompt builds",
+        run: async () => {
+            const res = await summarize.execute({ files: ["README.md"], perFileCharLimit: 2000 });
+            return typeof res === "string" && res.includes("# Summarize Documents");
         },
     },
 ];

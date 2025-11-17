@@ -1,0 +1,17 @@
+---
+alwaysApply: true
+---
+
+# Project Rules – Product (cursor-pm-copilot)
+
+- Treat this repository as my personal PM/TPM control center.
+- Prefer using:
+  - `workspace/docs/` for project notes, daily notes, and status docs.
+  - `workspace/templates/` for PRD, TRD, and status templates.
+- When I ask you to create a PRD or TRD in this repo:
+  - Use the templates in `workspace/templates/` if they exist.
+  - Suggest a filename and location under `workspace/docs/`.
+- For “summarize this project / feature” requests:
+  - Look at PRDs, TRDs, and project notes under `workspace/docs/`.
+  - Produce bullet-first summaries that I can paste into Slack, Linear, or Notion.
+- Assume that this repo is a **thinking + documentation space** to support my other work repos, not the main application codebase.

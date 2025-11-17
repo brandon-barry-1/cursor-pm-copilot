@@ -1,0 +1,20 @@
+---
+alwaysApply: true
+---
+
+# Project Rules – Engineering (cursor-pm-copilot)
+
+- This repo is primarily for PM/TPM workflows and examples, **not** a production service.
+- Code examples here should be:
+  - Simple, didactic, and easy to follow.
+  - Python or TypeScript by default unless the repo clearly dictates another language.
+- Prefer:
+  - Small, well-commented helpers over large abstractions.
+  - Clear, step-by-step explanations when generating code, since this is also a learning environment.
+- If you add utilities or tools:
+  - Keep them in clearly named locations (for example, `workspace/scripts/`, `.cursor/tools/`).
+  - Add a short usage note whenever you create a new helper or tool.
+- When I ask you to “wire something up” in this repo:
+  - Propose a simple structure first.
+  - Explain where each new file will live and what it does.
+  - Avoid touching unrelated files unless absolutely necessary.
